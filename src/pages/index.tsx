@@ -1,13 +1,14 @@
 import * as React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Typography from '@material-ui/core/Typography';
+// import Button from '@material-ui/core/Button';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
+// import Typography from '@material-ui/core/Typography';
 import withStyles, { WithStyles, StyleRulesCallback } from '@material-ui/core/styles/withStyles';
 import withRoot from '../withRoot';
+import { Card, CardContent } from '@material-ui/core';
 
 const styles: StyleRulesCallback<'root'> = theme => ({
   root: {
@@ -40,7 +41,22 @@ class Index extends React.Component<WithStyles<'root'>, State> {
   render() {
     return (
       <div className={this.props.classes.root}>
-        <Dialog open={this.state.open} onClose={this.handleClose}>
+        Search
+
+        Filters
+
+        <Card>
+          image
+          <CardContent>
+            Title
+            rating
+            descirption
+            price
+          </CardContent>
+        </Card>
+
+        Map
+        {/* <Dialog open={this.state.open} onClose={this.handleClose}>
           <DialogTitle>Super Secret Password</DialogTitle>
           <DialogContent>
             <DialogContentText>1-2-3-4-5</DialogContentText>
@@ -59,7 +75,7 @@ class Index extends React.Component<WithStyles<'root'>, State> {
         </Typography>
         <Button variant="raised" color="secondary" onClick={this.handleClick}>
           Super Secret Password
-        </Button>
+        </Button> */}
       </div>
     );
   }
