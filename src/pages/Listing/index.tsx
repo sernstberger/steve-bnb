@@ -7,7 +7,7 @@ import * as React from 'react';
 // import DialogTitle from '@material-ui/core/DialogTitle';
 // import Typography from '@material-ui/core/Typography';
 import withStyles, { WithStyles, StyleRulesCallback } from '@material-ui/core/styles/withStyles';
-import withRoot from '../withRoot';
+import withRoot from '../../withRoot';
 import { Card, CardContent } from '@material-ui/core';
 
 const styles: StyleRulesCallback<'root'> = theme => ({
@@ -21,7 +21,7 @@ type State = {
   open: boolean;
 };
 
-class Index extends React.Component<WithStyles<'root'>, State> {
+class Listing extends React.Component<WithStyles<'root'>, State> {
   state = {
     open: false,
   };
@@ -38,10 +38,11 @@ class Index extends React.Component<WithStyles<'root'>, State> {
     });
   };
 
-  render() {
+  render(): any {
     return (
       <div className={this.props.classes.root}>
-        Search
+
+        Listing
 
         Filters
 
@@ -81,4 +82,4 @@ class Index extends React.Component<WithStyles<'root'>, State> {
   }
 }
 
-export default withRoot(withStyles(styles)(Index));
+export default withRoot(withStyles(styles)(Listing));
