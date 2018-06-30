@@ -42,12 +42,11 @@ class Listing extends React.Component<WithStyles<'root'>, State> {
     return (
       <div className={this.props.classes.root}>
 
-        Listing
+        <img src="https://source.unsplash.com/random/800x600" alt="aldjf"/>
 
         Filters
 
         <Card>
-          image
           <CardContent>
             Title
             rating
