@@ -10,6 +10,9 @@ import Grid from '@material-ui/core/Grid';
 import ListingCard from '../../Components/ListingCard';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 import withStyles, { WithStyles, StyleRulesCallback } from '@material-ui/core/styles/withStyles';
 import withRoot from '../../withRoot';
@@ -20,7 +23,7 @@ import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  // Marker,
+  Marker,
 } from 'react-google-maps';
 
 // interface IFoo {
@@ -30,7 +33,7 @@ import {
 //   mapElement: any;
 // }
 
-const someLatLng = {lat: 55.751244, lng: 37.618423};
+const someLatLng = {lat: 39.764859, lng: -86.1706705};
 // tslint:disable-next-line:max-line-length
 export const googleMapURL = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAVlYwBTjVdzkmXPsxAud3XCHXasKGdJe8';
 
@@ -50,8 +53,12 @@ const MyGoogleMap = withScriptjs(withGoogleMap(() => (
   <GoogleMap
     defaultCenter={someLatLng}
     defaultZoom={16}
-    options={{disableDefaultUI: true}} 
-  />))
+    options={{disableDefaultUI: true}}
+  >
+    <Marker
+      position={someLatLng}
+    />
+  </GoogleMap>))
 );
 const loadingElement = <div/>;
 const containerElement = <div style={{height: '100vh'}}/>;
@@ -122,7 +129,27 @@ class Home extends React.Component<WithStyles<'root'>, State> {
             <Button variant="contained">aljdsflkasjf</Button>
             <Button variant="contained">aljdsflkasjf</Button>
 
-            Show map
+            <FormGroup row>
+              <FormControlLabel
+                control={
+                  <Switch
+                    // classes={{
+                    //   switchBase: classes.iOSSwitchBase,
+                    //   bar: classes.iOSBar,
+                    //   icon: classes.iOSIcon,
+                    //   iconChecked: classes.iOSIconChecked,
+                    //   checked: classes.iOSChecked,
+                    // }}
+                    disableRipple
+                    // checked={this.state.checkedB}
+                    // onChange={this.handleChange('checkedB')}
+                    value="checkedB"
+                  />
+                }
+                label="Show map"
+              />
+            </FormGroup>
+
           </Toolbar>
         </AppBar>
 
@@ -148,27 +175,6 @@ class Home extends React.Component<WithStyles<'root'>, State> {
             {/* <img src="https://source.unsplash.com/random/800x600" alt="aldjf" style={{maxWidth: '100%'}}/> */}
           {/* </Grid> */}
         </Grid>
-
-        {/* <Dialog open={this.state.open} onClose={this.handleClose}>
-          <DialogTitle>Super Secret Password</DialogTitle>
-          <DialogContent>
-            <DialogContentText>1-2-3-4-5</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button color="primary" onClick={this.handleClose}>
-              OK
-            </Button>
-          </DialogActions>
-        </Dialog>
-        <Typography variant="display1" gutterBottom>
-          Material-UI
-        </Typography>
-        <Typography variant="subheading" gutterBottom>
-          example project
-        </Typography>
-        <Button variant="raised" color="secondary" onClick={this.handleClick}>
-          Super Secret Password
-        </Button> */}
       </div>
     );
   }

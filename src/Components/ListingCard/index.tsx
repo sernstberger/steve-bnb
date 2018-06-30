@@ -5,6 +5,7 @@ import * as React from 'react';
 // import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 // import DialogTitle from '@material-ui/core/DialogTitle';
+import grey from '@material-ui/core/colors/grey';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
 
@@ -74,7 +75,7 @@ class ListingCard extends React.Component<WithStyles<'root' | 'image' | 'boo' | 
 
                   <Typography variant="body1">12 others are looking at this thing</Typography>
                 </Grid>
-                <Grid item xs={12} sm={4} style={{borderLeft: '1px solid red', padding: 16}}>
+                <Grid item xs={12} sm={4} style={{borderLeft: `1px solid ${grey[300]}`, padding: 16}}>
                   <Typography variant="title">$234</Typography>
                   <Typography variant="body1">per night</Typography>
                   <Chip label="New" />
