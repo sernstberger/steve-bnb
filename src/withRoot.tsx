@@ -25,12 +25,35 @@ const theme = createMuiTheme({
         },
       },
     },
+
+    MuiChip: {
+      root: {
+        backgroundColor: '#008489',
+        borderRadius: 4,
+        color: '#fff',
+        // padding: 2,
+        height: 20,
+        textTransform: 'uppercase',
+      },
+      label: {
+        fontSize: '.75rem',
+        fontWeight: 600,
+        paddingLeft: 6,
+        paddingRight: 6,
+      }
+    },
   },
 
   typography: {
     fontFamily: '"Rubik","-apple-system,system-ui,BlinkMacSystemFont","Helvetica Neue",Arial,sans-serif',
     title: {
       fontWeight: 600,
+    },
+    body2: {
+      color: grey[600],
+      fontSize: '.8125rem',
+      fontWeight: 600,
+      textTransform: 'uppercase',
     },
     button: {
       // letterSpacing: '1px',

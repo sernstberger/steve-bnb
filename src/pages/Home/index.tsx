@@ -26,34 +26,13 @@ import {
   Marker,
 } from 'react-google-maps';
 
-// interface IFoo {
-//   googleMapURL: string;
-//   loadingElement: any;
-//   containerElement: any;
-//   mapElement: any;
-// }
-
 const someLatLng = {lat: 39.764859, lng: -86.1706705};
-// tslint:disable-next-line:max-line-length
-export const googleMapURL = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAVlYwBTjVdzkmXPsxAud3XCHXasKGdJe8';
-
-// const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props: IFoo => (
-//   <GoogleMap
-//     defaultZoom={8}
-//     defaultCenter={{ lat: -34.397, lng: 150.644 }}
-//   >
-//     <Marker
-//       position={{ lat: -34.397, lng: 150.644 }}
-//     />
-//   </GoogleMap>
-// )
-// );
+const googleMapURL = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAVlYwBTjVdzkmXPsxAud3XCHXasKGdJe8';
 
 const MyGoogleMap = withScriptjs(withGoogleMap(() => (
   <GoogleMap
     defaultCenter={someLatLng}
     defaultZoom={16}
-    options={{disableDefaultUI: true}}
   >
     <Marker
       position={someLatLng}
@@ -85,11 +64,13 @@ const styles: StyleRulesCallback<'root'> = theme => ({
 
 type State = {
   open: boolean;
+  checkedB: boolean
 };
 
 class Home extends React.Component<WithStyles<'root'>, State> {
   state = {
     open: false,
+    checkedB: true,
   };
 
   handleClose = () => {
@@ -102,6 +83,10 @@ class Home extends React.Component<WithStyles<'root'>, State> {
     this.setState({
       open: true,
     });
+  };
+
+  handleChange = (event: any) => {
+    this.setState({ checkedB: event.target.checked });
   };
 
   render(): any {
@@ -141,8 +126,8 @@ class Home extends React.Component<WithStyles<'root'>, State> {
                     //   checked: classes.iOSChecked,
                     // }}
                     disableRipple
-                    // checked={this.state.checkedB}
-                    // onChange={this.handleChange('checkedB')}
+                    checked={this.state.checkedB}
+                    onChange={this.handleChange}
                     value="checkedB"
                   />
                 }
@@ -157,24 +142,28 @@ class Home extends React.Component<WithStyles<'root'>, State> {
 
         Filters
 
-        <Grid container spacing={0} className={this.props.classes.root}>
-          <Grid item xs={12} md={7} xl={6}>
-            <ListingCard/>
-            <ListingCard/>
-            <ListingCard/>
-            <ListingCard/>
-            <ListingCard/>
-            <ListingCard/>
-            paging
-          </Grid>
-          {/* <Grid item xs={12} md={5} xl={6}> */}
+        { this.state.checkedB ?
+          <Grid container spacing={0} className={this.props.classes.root}>
+            <Grid item xs={12} md={7} lg={6}>
+              <ListingCard
+                horizontal={true}
+              />
+              {/* <ListingCard horizontal />
+              <ListingCard horizontal />
+              <ListingCard horizontal />
+              <ListingCard horizontal />
+              <ListingCard horizontal />
+              <ListingCard horizontal /> */}
+              paging
+            </Grid>
 
-            <Card style={{backgroundColor: 'red', position: 'fixed', top: 150, left: '50%', right: 24, bottom: 10}}>
+            <Card style={{backgroundColor: '#CCC', position: 'fixed', top: 150, left: '50%', right: 24, bottom: 10}}>
               {map}
             </Card>
-            {/* <img src="https://source.unsplash.com/random/800x600" alt="aldjf" style={{maxWidth: '100%'}}/> */}
-          {/* </Grid> */}
-        </Grid>
+          </Grid>
+        :
+          <ListingCard/>
+        }
       </div>
     );
   }
